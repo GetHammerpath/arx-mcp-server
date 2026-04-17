@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  arx-mcp-server:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ARXSEC_API_URL=${ARXSEC_API_URL:-http://localhost:8001}
+      - ARXSEC_API_KEY=${ARXSEC_API_KEY}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - ./logs:/app/logs
+
+# Note: This docker-compose runs the MCP server in isolation.
+# The ARXSEC_API_URL should point to your ARXsec.io API instance.
+#
+# For full-stack development with arxsec-api, use the docker-compose.yml
+# from the Project-Agent repository: https://github.com/GetHammerpath/Project-Agent

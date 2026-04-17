@@ -1,0 +1,6 @@
+include README_MCP.md
+include LICENSE
+include .env.example
+include requirements.txt
+include pytest.ini
+recursive-include tests *.py
